@@ -17,7 +17,6 @@ class Comment extends Model
         'image',
     ];
 
-    // Відношення до користувача
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -63,7 +63,7 @@
 
         props: {
             parent_id: {
-                type: [Number, String], // Залежить від того, як тип передається з сервера
+                type: [Number, String],
                 default: null,
             },
         },
@@ -75,7 +75,6 @@
                 parent_id: null,
             });
 
-            // Встановлюємо значення parent_id з пропсів в форму при створенні компонента
             form.parent_id = props.parent_id;
 
             function store() {

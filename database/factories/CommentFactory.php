@@ -6,10 +6,7 @@ use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
-use Illuminate\Support\Facades\File;
-use Faker\Generator as Faker;
 
 class CommentFactory extends Factory
 {
@@ -19,7 +16,7 @@ class CommentFactory extends Factory
     {
         $imagePath = null;
 
-        // Отримати дійсного користувача
+
         $user = User::inRandomOrder()->first();
 
         if ($this->faker->boolean) {
