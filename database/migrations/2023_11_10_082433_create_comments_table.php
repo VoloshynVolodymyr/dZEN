@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->text('text');
-            $table->string('image');
+            $table->string('image')->nullable(); // Оновлено ім'я стовпця
             $table->timestamps();
         });
     }

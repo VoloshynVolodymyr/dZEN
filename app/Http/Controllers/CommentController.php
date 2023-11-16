@@ -53,12 +53,12 @@ class CommentController extends Controller
     public function store(CommentRequest $request)
     {
         $userId = Auth::id();
+        $filePath = null;
         $file = $request->file('image');
         $parent_id = $request->input('parent_id');
 
         if ($file) {
             $image = Image::make($file->path());
-
             if ($image->width() > 320 || $image->height() > 240) {
                 $image->resize(320, 240, function ($constraint) {
                     $constraint->aspectRatio();
@@ -66,18 +66,16 @@ class CommentController extends Controller
             }
 
             $name = md5(Carbon::now()) . '_' . $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension();
 
-            $image->save(public_path("storage/images/{$name}.{$extension}"), 80, $extension);
+            $imagePath = 'storage/images/' . $name;
+            $image->save(public_path($imagePath));
 
-            $filePath = "storage/images/{$name}.{$extension}";
-        } else {
-            $filePath = null;
+            $filePath = "storage/images/{$name}";
         }
 
         Comment::create([
             'user_id' => $userId,
-            'parent_id' => $parent_id, // Зберігаємо значення parent_id
+            'parent_id' => $parent_id,
             'text' => $request->input('text'),
             'image' => $filePath,
         ]);

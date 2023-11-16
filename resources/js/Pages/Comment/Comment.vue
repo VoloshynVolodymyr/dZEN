@@ -43,19 +43,19 @@
                 </div>
             </div>
 
-            <div v-if="replies.includes(comment.id)">
-                <Comment
-                    v-for="childComment in comment.children || replies[comment.id]"
-                    :key="childComment.id"
-                    :comment="childComment"
-                    :users="users"
-                    @destroy="destroy"
-                    :depth="depth + 1"
-                    :numReplies="getNumberOfReplies(childComment.id)"
-                    :replies="replies"
-                    @toggleReplies="toggleReplies"
-                />
-            </div>
+<!--            <div v-if="replies.includes(comment.id)">-->
+<!--                <Comment-->
+<!--                    v-for="childComment in comment.children || replies[comment.id]"-->
+<!--                    :key="childComment.id"-->
+<!--                    :comment="childComment"-->
+<!--                    :users="users"-->
+<!--                    @destroy="destroy"-->
+<!--                    :depth="depth + 1"-->
+<!--                    :numReplies="getNumberOfReplies(childComment.id)"-->
+<!--                    :replies="replies"-->
+<!--                    @toggleReplies="toggleReplies"-->
+<!--                />-->
+<!--            </div>-->
         </div>
     </div>
 </template>

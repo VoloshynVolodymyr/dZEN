@@ -14,7 +14,7 @@ class UpdateCommentsTable extends Migration
     public function up()
     {
         Schema::table('comments', function (Blueprint $table) {
-            $table->string('image')->nullable()->change();
+            $table->string('image')->nullable()->change(); // Оновлено ім'я стовпця
         });
     }
 

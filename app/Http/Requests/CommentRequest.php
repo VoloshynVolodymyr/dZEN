@@ -27,7 +27,7 @@ class CommentRequest extends FormRequest
             'user_id' => 'exists:users,id',
             'parent_id' => 'nullable|exists:comments,id',
             'text' => 'required|string|max:100000',
-            'image' => 'nullable|image|mimes:jpeg,png,gif|max:2048',
+            'images' => 'nullable|images|mimes:jpeg,png,gif|max:2048',
         ];
     }
 }
