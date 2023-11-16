@@ -24,9 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        parent::boot();
-
         $imagesPath = public_path('storage/images');
         File::ensureDirectoryExists($imagesPath);
+
+        $cachePath = base_path('bootstrap/cache');
+        File::ensureDirectoryExists($cachePath);
     }
 }
